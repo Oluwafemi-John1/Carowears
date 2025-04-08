@@ -41,4 +41,13 @@ app.get('/test',(req,res)=>{
     res.send(allCountries)
 })
 
+app.post('/submit', (req,res)=>{
+    console.log(req.body);
+    if(req.body) {
+        res.status(201).json({message: 'form submitted successfully'})
+    } else {
+        res.status(401).json({message: 'form not submitted'})
+    }
+})
+
 app.listen(port,()=>console.log(`Server started at port: ${port}`))
